@@ -8,57 +8,7 @@
     <title>Test Game</title>
 </head>
 <body>
-    <style>
-        html{
-            background-color: blue;
-        }
-        #player{
-            height: 200px;
-            width: 200px;
-            background: white;
-            border-radius: 50%;;
-            left: 45vw;
-        }
-        #ground{
-            height: 200px;
-            width: 100vw;
-            background: brown;
-        }
-    </style>
-    <div id="player" hidden></div>
-    <div id="ground"></div>
-    <script>
-        const socket = io();
-        var c = 0;
-        function gravity(a){
-            c--;
-            player.style.transform =`translateY(${c}px)`;
-         var b = ground.getBoundingClientRect();
-         var check = !(
-        ((a.y + a.height) < (b.y)) ||
-        (a.y > (b.y + b.height)) ||
-        ((a.x + a.width) < b.x) ||
-        (a.x > (b.x + b.width))
-    );
-    if(!check){
-        setTimeout(()=> {
-            drop(a);
-        }, 10)
-    }
-        }
-        socket.emit("test");
-        var player = document.getElementById("player");
-        var ground = document.getElementById("ground");
-        socket.on("conn", (play)=> {
-            player = player.cloneNode();
-            player.innerText = play;
-            player.hidden = false;
-            player.id = play;
-            document.body.insertBefore(player, ground);
-            document.querySelectorAll(".player").forEach(p=> {
-
-            })
-        })
-    </script>
+   
+   <iframe src="https://i.simmer.io/@thepaper/test" style="width:960px;height:600px"></iframe>
 </body>
 </html>
